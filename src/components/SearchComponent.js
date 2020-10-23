@@ -2,15 +2,23 @@ import { Button } from '@material-ui/core'
 import { Search, Mic } from '@material-ui/icons'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
+import { actionTypes } from '../reducer';
+import { useStateValue } from '../StateProvider';
 import './SearchComponent.css'
 
 function SearchComponent({ hideButtons = false }) {
+    const [{ }, dispatch] = useStateValue();
 
     const [input, setInput] = useState("");
     const history = useHistory();
 
     const search = e => {
         e.preventDefault();
+
+        dispatch({
+            type: actionTypes.SET_SEARCH_TERM,
+            term: input
+        })
 
         history.push('/search');
     }
