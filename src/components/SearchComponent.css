@@ -20,6 +20,11 @@
   color: rgb(154, 160, 166);
 }
 
+.micIcon {
+  height: 30px;
+  width: 30px;
+}
+
 .search__input > input {
   flex: 1;
   padding: 10px 20px;
